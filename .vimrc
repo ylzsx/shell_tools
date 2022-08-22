@@ -191,7 +191,7 @@ endfunction
 										  
 autocmd VimEnter * call TabPos_Initialize()
 
-
+set clipboard=unnamedplus
 vnoremap <C-y> "+y
 nnoremap <C-p> "+p
 
