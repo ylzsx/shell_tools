@@ -9,8 +9,11 @@
 PS1='[\u@\h \W]\$ '
 
 # some alias, but they can not inherited by fish
-alias ls='ls -la --color=auto'
+alias ll='ls -la --color=auto'
 alias rscp="rsync -avPz --rsh=ssh"
+if [[ -x $(command -v proxychains4) &&  -e $HOME/.proxychains4.conf ]]; then
+	alias proxychains4='proxychains4 -f $HOME/.proxychains4.conf'
+fi
 
 # import `$HOME/opt` as custom root path
 export C_INCLUDE_PATH=$HOME/opt/usr/include/:$C_INCLUDE_PATH
