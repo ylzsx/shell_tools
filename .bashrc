@@ -27,6 +27,9 @@ export PATH=$HOME/opt/usr/bin:$PATH
 # set default editor
 export EDITOR=/usr/bin/vim
 
+# set the path to the custom python functions
+export PYTHONPATH=$PYTHONPATH:$HOME/shell_tools/mpy_script/
+
 # proxy
 export all_proxy=
 export http_proxy=
