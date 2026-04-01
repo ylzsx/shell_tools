@@ -31,9 +31,10 @@ export EDITOR=/usr/bin/vim
 export PYTHONPATH=$PYTHONPATH:$HOME/shell_tools/mpy_script/
 
 # proxy
-export all_proxy=
-export http_proxy=
-export https_proxy=
+PROXY=
+export all_proxy=$PROXY
+export http_proxy=$PROXY
+export https_proxy=$PROXY
 
 # fzf: command-line fuzzy finder
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview-window down:5'
@@ -49,6 +50,6 @@ else
 fi
 
 # fish: friendly interactive shell
-if [[ -x $(command -v fish) && $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]; then
+if [[ -x $(command -v fish) && $(ps --no-header --pid=$PPID --format=cmd) != "fish" && -z $(tty | grep '/dev/tty') ]]; then
     exec fish
 fi
