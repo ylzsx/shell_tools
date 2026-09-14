@@ -5,6 +5,7 @@ end
 # some alias
 alias ll='ls -la --color=auto'
 alias rscp='rsync -avPz --rsh=ssh'
+alias fd='fdfind'
 
 if type -q proxychains4; and test -e $HOME/.proxychains4.conf
   alias proxychains4="proxychains4 -f $HOME/.proxychains4.conf"

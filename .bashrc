@@ -11,18 +11,19 @@ PS1='[\u@\h \W]\$ '
 # some alias, but they can not inherited by fish
 alias ll='ls -la --color=auto'
 alias rscp="rsync -avPz --rsh=ssh"
-if [[ -x $(command -v proxychains4) &&  -e $HOME/.proxychains4.conf ]]; then
-	alias proxychains4='proxychains4 -f $HOME/.proxychains4.conf'
-fi
+
+# proxychains can read $HOME/.proxychains/proxychains.conf
 
 # import `$HOME/opt` as custom root path
-export C_INCLUDE_PATH=$HOME/opt/usr/include/:$C_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=$HOME/opt/usr/include/:$CPLUS_INCLUDE_PATH
-export CPATH=$HOME/opt/usr/include/:$CPATH
-export LD_LIBRARY_PATH=$HOME/opt/usr/lib:$LD_LIBRARY_PATH
-export LIBRARY_PATH=$HOME/opt/usr/lib:$LIRARY_PATH
-export MANPATH=$HOME/opt/usr/man:$MANPATH
-export PATH=$HOME/opt/usr/bin:$PATH
+export PREFIX=$HOME/opt/usr
+export PATH=$PREFIX/bin:$PATH
+export C_INCLUDE_PATH=$PREFIX/include:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$PREFIX/include:$CPLUS_INCLUDE_PATH
+export CPATH=$PREFIX/include:$CPATH
+export LIBRARY_PATH=$PREFIX/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig:$PREFIX/share/pkgconfig:$PKG_CONFIG_PATH
+export MANPATH=$PREFIX/share/man:$PREFIX/man:${MANPATH:-}
 
 # set default editor
 export EDITOR=/usr/bin/vim

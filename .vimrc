@@ -51,6 +51,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+set expandtab
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
